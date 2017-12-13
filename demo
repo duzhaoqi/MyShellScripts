@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ $1 =~ .*\.sh$ ]]; then 
+	touch $1
+else 
+	echo "Please input a right ScriptName!"
+	exit 1
+fi
+#-------------------------------------------------
+
+cat >> $1 << END
+#!/bin/bash
+#===========================================
+#Author:		  duzhaoqi
+#Email:			  1147705876@qq.com	
+#Time: 			  `date +'%F'`
+#Name:			  `basename $1`
+#Version:         1.0
+#===========================================
+END
+
+
+
+#------------------------------------------------
+chmod +x $1
+vim $1
