@@ -6,14 +6,16 @@ touch /etc/yum.repos.d/own.repo
 
 mkdir /mnt/cdrom
 
-cat > /etc/yum.repos.d/own.repo <<EOF
+cat > /etc/yum.repos.d/base.repo <<EOF
 [base]
-name=dudu
+name=base
 baseurl=file:///mnt/cdrom/
 gpgcheck=0
 EOF
 
-mount /dev/sr0 /mnt/cdrom/ &> /dev/null
+
+echo "/dev/sr0	/mnt/cdrom   iso9660    defaults    0 0" >> /etc/fstab &>/dev/null
+mount -a &>/dev/null
 
 yum clean all &> /dev/null
 yum repolist &> /dev/null 
@@ -42,6 +44,5 @@ autocmd BufNewFile * normal G
 EOF
 .  ~/.vimrc &>/dev/null
 
-echo "/dev/sr0	/mnt/cdrom   iso9660    defaults    0 0" >> /etc/fstab
 
 yum install openssh-clients -y &>/dev/null
