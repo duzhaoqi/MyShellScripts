@@ -1,2 +1,6 @@
-### This is a repertory of my vmware.
-### I use it to memory my shell'scripts
+# 说明
+
+我的一些脚本的记录
+
+- [关于初始化的一些脚本](init/)
+
